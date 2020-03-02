@@ -1,0 +1,4 @@
+deploy1 ansible_host=localhost
+
+[deployment_servers]
+deploy1

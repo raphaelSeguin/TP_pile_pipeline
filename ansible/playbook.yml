@@ -1,0 +1,15 @@
+---
+- hosts: deployment_servers
+  become:  yes
+  tasks:
+  - name: Install java
+    yum:
+      name: java
+      state: present
+  - name: Download executable
+    get_url:
+     url: ##########
+     dest: /usr/lib/
+  - name: Launch application
+    shell:
+      cmd: java -jar ########
