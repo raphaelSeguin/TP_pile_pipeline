@@ -13,8 +13,6 @@ resource "azurerm_virtual_network" "vnet" {
 }
 */
 
-
-
 resource "azurerm_subnet" "subnet" {
     count                = var.machines_number
     name                 = "subnet${count.index}"
@@ -41,3 +39,4 @@ resource "azurerm_subnet_network_security_group_association" "secu_assoc1" {
   count                     = var.machines_number
   subnet_id                 = azurerm_subnet.subnet[count.index].id
   network_security_group_id = azurerm_network_security_group.secu.id
+}
